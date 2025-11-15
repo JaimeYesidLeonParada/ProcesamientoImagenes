@@ -20,7 +20,7 @@ def call_ollama(img_path, model="moondream", prompt_user=None):
                 {"role": "system", "content": "You are an OCR that reads car plates and city text below."},
                 {"role": "user", "content": prompt_user, "images": [img_path]}
             ],
-            options={"temperature": 0.0, "num_predict": 32}
+            options={"temperature": 0.0, "num_predict": 16}
         )
     except Exception as e:
         print("[FNC call_ollama] ERROR: fallo comunicacion con ollama:", str(e))

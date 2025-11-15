@@ -5,6 +5,8 @@ import cv2
 import numpy as np
 from ocr import call_ollama
 from utils import create_mask, find_largest_contour, get_warp_from_box, preprocess_plate
+from ocr_clean import clean_ocr_text
+
 
 IMG_PATH = "placa.jpg"
 
@@ -79,7 +81,13 @@ def main():
         raise SystemExit("Error en llamada al servicio OCR")
     print("[MAIN] Resultado OCR:")
     print(ocr_result)
+    
+    plate_fixed, city = clean_ocr_text(ocr_result)
+    print("[MAIN] Resultado OCR limpio:", plate_fixed, ",", city)
 
+
+		
+	
     print("[MAIN] Flujo completado correctamente")
 
 if __name__ == "__main__":

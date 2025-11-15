@@ -17,6 +17,14 @@ HMIN, HMAX = 17, 27
 SMIN, SMAX = 160, 255
 VMIN, VMAX = 190, 255
 
+def resize_image(img, target_w=350):
+    h, w = img.shape[:2]
+    scale = target_w / float(w)
+    new_h = int(h * scale)
+    resized = cv2.resize(img, (target_w, new_h), interpolation=cv2.INTER_AREA)
+    #resized = cv2.resize(img, (350, 250), interpolation=cv2.INTER_CUBIC)
+    return resized
+
 # -------------------- Main y ejecucion --------------------
 def main(folder="data/placas"):
     print("[MAIN] Inicio del flujo en carpeta:", folder)
@@ -33,9 +41,11 @@ def main(folder="data/placas"):
         print("\n[MAIN] Procesando:", path)
 
         bgr = cv2.imread(path)
+                
         if bgr is None:
             print("[MAIN] [ERROR] No se pudo leer la imagen:", path)
             continue
+        bgr = resize_image(bgr, target_w = 500)
 
         # STEP 03: mascara
         mask, kernel = create_mask(bgr, HMIN, HMAX, SMIN, SMAX, VMIN, VMAX)
@@ -66,6 +76,7 @@ def main(folder="data/placas"):
 
         # limpieza postprocesado
         plate_fixed, city = clean_ocr_text(ocr_result)
+        print("[MAIN] Resultado OLLAMA:", ocr_result)
         print("[MAIN] Resultado OCR limpio:", plate_fixed, ",", city)
 
     print("\n[MAIN] Flujo completado para carpeta:", folder)

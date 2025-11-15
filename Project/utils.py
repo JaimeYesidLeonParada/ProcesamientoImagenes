@@ -30,7 +30,6 @@ def create_mask(bgr, hmin, hmax, smin, smax, vmin, vmax):
 # find_largest_contour: busca contornos y devuelve el mayor y su caja
 
 def find_largest_contour(mask, kernel):
-    # cerrar small gaps antes de buscar contornos
     print("[FNC find_largest_contour] Aplicando CLOSE adicional y buscando contornos")
     mask_closed = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel, iterations=2)
     contours, _ = cv2.findContours(mask_closed, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
@@ -43,12 +42,38 @@ def find_largest_contour(mask, kernel):
     area = cv2.contourArea(cnt)
     print(f"[FNC find_largest_contour] Contorno mayor encontrado. Area = {int(area)}")
 
+    # calcular caja minima
     rect = cv2.minAreaRect(cnt)
     box = cv2.boxPoints(rect).astype(np.float32)
-    print("[FNC find_largest_contour] Caja minima calculada")
+
+    w, h = rect[1]
+    aspect = max(w, h) / (min(w, h) + 1e-5)
+
+    if aspect > 4.0 or aspect < 1.5:
+        # fallback: boundingRect
+        x, y, bw, bh = cv2.boundingRect(cnt)
+        box = np.array([
+            [x, y],
+            [x+bw, y],
+            [x+bw, y+bh],
+            [x, y+bh]
+        ], dtype=np.float32)
+        print(f"[FNC find_largest_contour] Aspecto raro ({aspect:.2f}). Usando boundingRect.")
+    else:
+        print(f"[FNC find_largest_contour] Aspecto aceptable ({aspect:.2f}). Usando minAreaRect.")
 
     return cnt, box
+
     
+def expand_box(src_points, expand_px=5):
+    # src_points: array de 4 puntos (tl, tr, br, bl)
+    # expandimos cada punto hacia afuera
+    expanded = src_points.copy()
+    expanded[0][0] -= expand_px; expanded[0][1] -= expand_px  # tl
+    expanded[1][0] += expand_px; expanded[1][1] -= expand_px  # tr
+    expanded[2][0] += expand_px; expanded[2][1] += expand_px  # br
+    expanded[3][0] -= expand_px; expanded[3][1] += expand_px  # bl
+    return expanded
     
 # get_warp_from_box: ordena puntos, calcula homografia y genera warp
 def get_warp_from_box(box, image, target_h=240, min_w=120):
@@ -61,6 +86,7 @@ def get_warp_from_box(box, image, target_h=240, min_w=120):
     tr = box[np.argmin(diff)]
     bl = box[np.argmax(diff)]
     src = np.array([tl, tr, br, bl], dtype=np.float32)
+    src = expand_box(src, expand_px=8)  # anade margen de 8 pixeles
     print("[FNC get_warp_from_box] Puntos fuente ordenados:", src.tolist())
 
     # calcular ancho y alto del rectificado

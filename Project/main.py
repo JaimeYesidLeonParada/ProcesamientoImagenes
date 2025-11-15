@@ -2,6 +2,7 @@
 print("[STEP 01] Inicializando: cargando modulos y constantes")
 
 import cv2
+import os
 import numpy as np
 from ocr import call_ollama
 from utils import create_mask, find_largest_contour, get_warp_from_box, preprocess_plate
@@ -17,78 +18,57 @@ SMIN, SMAX = 160, 255
 VMIN, VMAX = 190, 255
 
 # -------------------- Main y ejecucion --------------------
-def main():
-    print("[MAIN] Inicio del flujo principal")
+def main(folder="data/placas"):
+    print("[MAIN] Inicio del flujo en carpeta:", folder)
 
-    # STEP 02: cargar imagen
-    print("[MAIN] STEP 02 - Cargando imagen:", IMG_PATH)
-    bgr = cv2.imread(IMG_PATH)
-    if bgr is None:
-        print("[MAIN] [ERROR] No se pudo leer la imagen:", IMG_PATH)
-        raise SystemExit("No se pudo leer la imagen.")
-    h_img, w_img = bgr.shape[:2]
-    print(f"[MAIN] Imagen cargada correctamente ({w_img}x{h_img})")
+    # listar archivos de imagen en la carpeta
+    exts = (".jpg", ".jpeg", ".png")
+    files = [f for f in os.listdir(folder) if f.lower().endswith(exts)]
+    if not files:
+        print("[MAIN] No se encontraron imagenes en", folder)
+        return
 
-    # STEP 03: crear mascara
-    print("[MAIN] STEP 03 - Generando mascara")
-    mask, kernel = create_mask(bgr, HMIN, HMAX, SMIN, SMAX, VMIN, VMAX)
+    for fname in files:
+        path = os.path.join(folder, fname)
+        print("\n[MAIN] Procesando:", path)
 
-    # STEP 04: overlay/blend
-    print("[MAIN] STEP 04 - Creando overlay y blend")
-    overlay = bgr.copy()
-    overlay[mask > 0] = (0, 0, 255)
-    blend = cv2.addWeighted(bgr, 0.5, overlay, 0.5, 0)
-    cv2.imwrite("debug_overlay.jpg", overlay)
-    cv2.imwrite("debug_blend.jpg", blend)
-    print("[MAIN] Debug overlay/blend guardados")
+        bgr = cv2.imread(path)
+        if bgr is None:
+            print("[MAIN] [ERROR] No se pudo leer la imagen:", path)
+            continue
 
-    # STEP 05: contornos
-    print("[MAIN] STEP 05 - Buscando contornos")
-    cnt, box = find_largest_contour(mask, kernel)
-    if cnt is None:
-        print("[MAIN] [ERROR] No se encontraron contornos")
-        raise SystemExit("No se encontraron contornos.")
-    area = int(cv2.contourArea(cnt))
-    print(f"[MAIN] Contorno seleccionado. Area = {area} pixeles")
-    debug_cnt = bgr.copy()
-    cv2.drawContours(debug_cnt, [box.astype(int)], 0, (0,255,0), 2)
-    cv2.imwrite("debug_contour_box.jpg", debug_cnt)
-    print("[MAIN] Debug contour box guardado")
+        # STEP 03: mascara
+        mask, kernel = create_mask(bgr, HMIN, HMAX, SMIN, SMAX, VMIN, VMAX)
 
-    # STEP 06: warp
-    print("[MAIN] STEP 06 - Generando warp")
-    warp, M, size = get_warp_from_box(box, bgr, target_h=240, min_w=120)
-    if warp is None:
-        print("[MAIN] [ERROR] No se pudo generar warp")
-        raise SystemExit("No se pudo crear warp")
-    target_w, target_h = size
-    cv2.imwrite("plate_warp.jpg", warp)
-    print(f"[MAIN] Imagen warp guardada: plate_warp.jpg ({target_w}x{target_h})")
+        # STEP 05: contornos
+        cnt, box = find_largest_contour(mask, kernel)
+        if cnt is None:
+            print("[MAIN] [ERROR] No se encontraron contornos en", path)
+            continue
 
-    # STEP 07: preprocesado
-    print("[MAIN] STEP 07 - Preprocesando placa")
-    out_path = preprocess_plate(warp, out_path="plate_prepoc.jpg")
-    if out_path is None:
-        print("[MAIN] [ERROR] Preprocesado fallido")
-        raise SystemExit("Preprocesado fallido")
-    print("[MAIN] Imagen preprocesada disponible en", out_path)
+        # STEP 06: warp
+        warp, M, size = get_warp_from_box(box, bgr, target_h=240, min_w=120)
+        if warp is None:
+            print("[MAIN] [ERROR] No se pudo generar warp en", path)
+            continue
 
-    # STEP 08: OCR
-    print("[MAIN] STEP 08 - Llamando OCR")
-    ocr_result = call_ollama(out_path)
-    if ocr_result is None:
-        print("[MAIN] [ERROR] OCR no devolvio resultado util")
-        raise SystemExit("Error en llamada al servicio OCR")
-    print("[MAIN] Resultado OCR:")
-    print(ocr_result)
-    
-    plate_fixed, city = clean_ocr_text(ocr_result)
-    print("[MAIN] Resultado OCR limpio:", plate_fixed, ",", city)
+        # STEP 07: preprocesado
+        out_path = preprocess_plate(warp, out_path=f"{fname}_prep.jpg")
+        if out_path is None:
+            print("[MAIN] [ERROR] Preprocesado fallido en", path)
+            continue
 
+        # STEP 08: OCR
+        ocr_result = call_ollama(out_path)
+        if ocr_result is None:
+            print("[MAIN] [ERROR] OCR fallo en", path)
+            continue
 
-		
-	
-    print("[MAIN] Flujo completado correctamente")
+        # limpieza postprocesado
+        plate_fixed, city = clean_ocr_text(ocr_result)
+        print("[MAIN] Resultado OCR limpio:", plate_fixed, ",", city)
+
+    print("\n[MAIN] Flujo completado para carpeta:", folder)
 
 if __name__ == "__main__":
-    main()
+    main("data/placas")  # ajusta la ruta a tu carpeta real

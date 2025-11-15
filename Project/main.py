@@ -1,8 +1,10 @@
 # -------------------- Imports y constantes --------------------
 print("[STEP 01] Inicializando: cargando modulos y constantes")
 
+from ollama import Client
 import cv2
 import numpy as np
+import json
 
 IMG_PATH = "placa.jpg"
 
@@ -132,7 +134,43 @@ def preprocess_plate(img, out_path="plate_prepoc.jpg", target_h=None):
 
     print("[FNC preprocess_plate] Preprocesado completado:", out_path)
     return out_path
+    
+    
+def call_ollama(img_path, model="moondream", prompt_user=None):
+    print("[FNC call_ollama] Preparando cliente ollama para:", img_path)
+    
+    if prompt_user is None:
+        prompt_user = ("Read the plate and the city name from the image. "
+                       "Return both separated by comma. An example of the result is: 'XYZ 123 , PASTO DC'")
 
+    try:
+        client = Client()
+        print("[FNC call_ollama] Cliente creado. Enviando solicitud...")
+        resp = client.chat(
+            model=model,
+            messages=[
+                {"role": "system", "content": "You are an OCR that reads car plates and city text below."},
+                {"role": "user", "content": prompt_user, "images": [img_path]}
+            ],
+            options={"temperature": 0.0, "num_predict": 32}
+        )
+    except Exception as e:
+        print("[FNC call_ollama] ERROR: fallo comunicacion con ollama:", str(e))
+        return None
+
+    try:
+        content = resp.get("message", {}).get("content", None)
+        if content:
+            print("[FNC call_ollama] Respuesta recibida")
+            return content
+        else:
+            print("[FNC call_ollama] ERROR: respuesta sin contenido util. Respuesta cruda:")
+            print(json.dumps(resp, indent=2))
+            return None
+    except Exception as e:
+        print("[FNC call_ollama] ERROR procesando la respuesta:", str(e))
+        print("Respuesta cruda:", resp)
+        return None
 
 # -------------------- Cargar imagen --------------------
 print("[STEP 02] Cargando imagen:", IMG_PATH)
@@ -196,43 +234,13 @@ else:
 
 
 # -------------------- Llamada al servicio OCR (ollama) --------------------
-print("[STEP 08] Preparando llamada al servicio OCR (ollama) con:", out_path)
-from ollama import Client
-import json
-
-IMG = out_path #OUT  # usamos la imagen procesada
-
-client = Client()
-
-try:
-    client = Client()
-    print("[STEP 08] Cliente ollama creado. Enviando solicitud...")
-    resp = client.chat(
-        model="moondream",
-        messages=[
-            {"role": "system", "content": "You are an OCR that reads car plates and city text below."},
-            {"role": "user", "content": "Read the plate and the city name from the image. Return both separated by comma. An example of the result is: 'XYZ 123 , PASTO DC' ", "images": [IMG]}
-        ],
-        options={
-            "temperature": 0.0,
-            "num_predict": 32
-        }
-    )
-except Exception as e:
-    print("[ERROR] Fallo en comunicacion con ollama:", str(e))
+print("[STEP 08] Llamando a call_ollama con:", out_path)
+ocr_result = call_ollama(out_path)
+if ocr_result is None:
+    print("[STEP 08] ERROR: OCR no devolvio resultado util")
     raise SystemExit("Error en llamada al servicio OCR")
-
-# validar respuesta y mostrar contenido
-try:
-    content = resp.get("message", {}).get("content", None)
-    if content:
-        print("[STEP 08] Respuesta recibida del OCR:")
-        print(content)
-    else:
-        print("[ERROR] Respuesta del OCR sin contenido util. Respuesta cruda:")
-        print(json.dumps(resp, indent=2))
-except Exception as e:
-    print("[ERROR] Error procesando la respuesta del OCR:", str(e))
-    print("Respuesta cruda:", resp)
+else:
+    print("[STEP 08] Resultado OCR:")
+    print(ocr_result)
 
 

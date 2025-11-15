@@ -194,6 +194,7 @@ if out_path is None:
 else:
     print("[STEP 07] Imagen preprocesada disponible en", out_path)
 
+
 # -------------------- Llamada al servicio OCR (ollama) --------------------
 print("[STEP 08] Preparando llamada al servicio OCR (ollama) con:", out_path)
 from ollama import Client

@@ -79,21 +79,39 @@ def expand_box(src_points, expand_px=5):
 def get_warp_from_box(box, image, target_h=240, min_w=120):
     # ordenar puntos como tl, tr, br, bl
     print("[FNC get_warp_from_box] Ordenando puntos fuente")
-    s = box.sum(axis=1)
-    diff = np.diff(box, axis=1).reshape(-1)
-    tl = box[np.argmin(s)]
-    br = box[np.argmax(s)]
-    tr = box[np.argmin(diff)]
-    bl = box[np.argmax(diff)]
-    src = np.array([tl, tr, br, bl], dtype=np.float32)
+    
+    #s = box.sum(axis=1)
+    #diff = np.diff(box, axis=1).reshape(-1)
+    #tl = box[np.argmin(s)]
+    #br = box[np.argmax(s)]
+    #tr = box[np.argmin(diff)]
+    #bl = box[np.argmax(diff)]
+    #src = np.array([tl, tr, br, bl], dtype=np.float32)
+
+    src = order_points(box)
+    src = expand_box(src, expand_px=8)
+    print("[FNC get_warp_from_box] Puntos fuente ordenados:", src.tolist())
+
+    debug_points = image.copy()
+    for (x, y) in src.astype(int):
+    	cv2.circle(debug_points, (x, y), 5, (0, 255, 0), -1)
+    cv2.imwrite("debug_points.jpg", debug_points)
+    print("[DEBUG] Puntos fuente guardados en debug_points.jpg")
+
     src = expand_box(src, expand_px=8)  # anade margen de 8 pixeles
     print("[FNC get_warp_from_box] Puntos fuente ordenados:", src.tolist())
 
     # calcular ancho y alto del rectificado
-    wA = np.linalg.norm(br - bl)
-    wB = np.linalg.norm(tr - tl)
-    hA = np.linalg.norm(tr - br)
-    hB = np.linalg.norm(tl - bl)
+    #wA = np.linalg.norm(br - bl)
+    #wB = np.linalg.norm(tr - tl)
+    #hA = np.linalg.norm(tr - br)
+    #hB = np.linalg.norm(tl - bl)
+    
+    wA = np.linalg.norm(src[2] - src[3])  # br - bl
+    wB = np.linalg.norm(src[1] - src[0])  # tr - tl
+    hA = np.linalg.norm(src[1] - src[2])  # tr - br
+    hB = np.linalg.norm(src[0] - src[3])  # tl - bl
+    
     maxW = max(wA, wB)
     maxH = max(hA, hB)
     aspect = maxW / maxH if maxH > 0 else 4.0
@@ -154,3 +172,24 @@ def preprocess_plate(img, out_path="plate_prepoc.jpg", target_h=None):
     print("[FNC preprocess_plate] Preprocesado completado:", out_path)
     return out_path
 
+def order_points(pts):
+    # pts: array de 4 puntos (x,y)
+    rect = np.zeros((4, 2), dtype="float32")
+
+    # ordenar por x (izquierda vs derecha)
+    x_sorted = pts[np.argsort(pts[:, 0]), :]
+
+    left = x_sorted[:2]
+    right = x_sorted[2:]
+
+    # ordenar por y dentro de cada grupo
+    left = left[np.argsort(left[:, 1]), :]
+    right = right[np.argsort(right[:, 1]), :]
+
+    # asignar: tl, bl, tr, br
+    rect[0] = left[0]   # top-left
+    rect[1] = right[0]  # top-right
+    rect[2] = right[1]  # bottom-right
+    rect[3] = left[1]   # bottom-left
+
+    return rect

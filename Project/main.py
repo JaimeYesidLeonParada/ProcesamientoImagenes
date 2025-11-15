@@ -156,16 +156,35 @@ IMG = OUT  # usamos la imagen procesada
 
 client = Client()
 
-resp = client.chat(
-    model="moondream",
-    messages=[
-        {"role":"system","content":"You are an OCR that reads car plates and city text below."},
-        {"role":"user","content":"Read the plate and the city name from the image. Return both separated by comma. Example: JNU540, BOGOTA DC","images":[IMG]}
-    ],
-    options={
-        "temperature": 0.0,
-        "num_predict": 32
-    }
-)
-print(resp["message"]["content"])
+try:
+    client = Client()
+    print("[STEP 08] Cliente ollama creado. Enviando solicitud...")
+    resp = client.chat(
+        model="moondream",
+        messages=[
+            {"role": "system", "content": "You are an OCR that reads car plates and city text below."},
+            {"role": "user", "content": "Read the plate and the city name from the image. Return both separated by comma. Example: JNU540, BOGOTA DC", "images": [IMG]}
+        ],
+        options={
+            "temperature": 0.0,
+            "num_predict": 32
+        }
+    )
+except Exception as e:
+    print("[ERROR] Fallo en comunicacion con ollama:", str(e))
+    raise SystemExit("Error en llamada al servicio OCR")
+
+# validar respuesta y mostrar contenido
+try:
+    content = resp.get("message", {}).get("content", None)
+    if content:
+        print("[STEP 08] Respuesta recibida del OCR:")
+        print(content)
+    else:
+        print("[ERROR] Respuesta del OCR sin contenido util. Respuesta cruda:")
+        print(json.dumps(resp, indent=2))
+except Exception as e:
+    print("[ERROR] Error procesando la respuesta del OCR:", str(e))
+    print("Respuesta cruda:", resp)
+
 

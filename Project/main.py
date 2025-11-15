@@ -29,11 +29,7 @@ overlay = bgr.copy()
 overlay[mask > 0] = (0, 0, 255)
 blend = cv2.addWeighted(bgr, 0.5, overlay, 0.5, 0)
 
-cv2.imwrite("mask_hsv.png", mask)
-cv2.imwrite("overlay_hsv.jpg", blend)
-
-print("OK guardado: mask_hsv.png y overlay_hasv.jpg")
-
+#------------------------------------------------------------------------------------------
 mask_closed = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel, iterations=2)
 contours, _ = cv2.findContours(mask_closed, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
@@ -68,13 +64,10 @@ dst = np.array([[0, 0], [target_w -1, 0], [target_w -1, target_h - 1], [0, targe
 M = cv2.getPerspectiveTransform(src, dst)
 warp = cv2.warpPerspective(bgr, M, (target_w, target_h), flags= cv2.INTER_LINEAR)
 
-cv2.imwrite("plate_warp.jpg", warp)
-print("[OK] guardado plate_warp.jpg")
-
 IN = "plate_warp.jpg"
 OUT = "plate_prepoc.jpg"
 
-img = cv2.imread(IN)
+img = warp
 if img is None:
     raise SystemExit("No existe el archivo plate_wrap.jpg")
 
@@ -97,8 +90,7 @@ print("[OK] guardado", OUT)
 from ollama import Client
 import json
 
-IMG = "plate_warp.jpg"   # ? tu imagen preprocesada
-#client = Client(host="http://localhost:11434")
+IMG = "plate_prepoc.jpg" 
 
 client = Client()
 
@@ -106,7 +98,7 @@ resp = client.chat(
     model="moondream",
     messages=[
         {"role":"system","content":"You are an OCR that reads car plates and city text below."},
-        {"role":"user","content":"Read the plate and the city name from the image. Return both separated by comma. Example: JNU540, BOGOTA DC","images":["plate_prepoc.jpg"]}
+        {"role":"user","content":"Read the plate and the city name from the image. Return both separated by comma. Example: JNU540, BOGOTA DC","images":[IMG]}
     ],
     options={
         "temperature": 0.0,

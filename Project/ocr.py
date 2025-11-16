@@ -1,11 +1,8 @@
-# ocr.py
 import json
 from ollama import Client
-
-    
     
 def call_ollama(img_path, model="moondream", prompt_user=None):
-    print("[FNC call_ollama] Preparando cliente ollama para:", img_path)
+    #print("[FNC call_ollama] Preparando cliente ollama para:", img_path)
     
     if prompt_user is None:
         prompt_user = ("Read the plate and the city name from the image. "
@@ -29,7 +26,7 @@ def call_ollama(img_path, model="moondream", prompt_user=None):
     try:
         content = resp.get("message", {}).get("content", None)
         if content:
-            print("[FNC call_ollama] Respuesta recibida")
+            #print("[FNC call_ollama] Respuesta recibida")
             return content
         else:
             print("[FNC call_ollama] ERROR: respuesta sin contenido util. Respuesta cruda:")

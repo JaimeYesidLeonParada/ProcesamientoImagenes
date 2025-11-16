@@ -1,0 +1,341 @@
+[MAIN] Procesando: data/placas/CSC317.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: CSC317.jpg | OCR bruto: ids = 'CSC-311, LA CALERA' | OCR limpio: IDS 311, LA CALERA | Tiempo: 54.919 s
+
+[MAIN] Procesando: data/placas/BOT577.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: BOT577.jpg | OCR bruto:  'BOT 577', 'BOGOTA D.C.' | OCR limpio: BOT 577, BOGOTA DC | Tiempo: 53.423 s
+
+[MAIN] Procesando: data/placas/GFN929.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: GFN929.jpg | OCR bruto:  'G-F-N-929, Chi' | OCR limpio: GFN 929, CHI | Tiempo: 52.888 s
+
+[MAIN] Procesando: data/placas/GLT182.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: GLT182.jpg | OCR bruto:  'Glt 1882 Bogota dc,' | OCR limpio: GLT 188, 2 BOGOTA DC, | Tiempo: 52.412 s
+
+[MAIN] Procesando: data/placas/ZRL521.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: ZRL521.jpg | OCR bruto:  'X,Y,Z 123,PASTO DC' | OCR limpio: X, Y, Z 123, PASTO DC | Tiempo: 52.765 s
+
+[MAIN] Procesando: data/placas/FNM982.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: FNM982.jpg | OCR bruto:  'FNM 9982', 'BOGOTA D.C.' | OCR limpio: FNM 998, BOGOTA DC | Tiempo: 56.799 s
+
+[MAIN] Procesando: data/placas/CZV388.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: CZV388.jpg | OCR bruto:  'CZV 3888', 'Bogota D.c.' | OCR limpio: CZV 388, BOGOTA DC | Tiempo: 54.660 s
+
+[MAIN] Procesando: data/placas/VUS123.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: VUS123.jpg | OCR bruto:  'VUS 123 Bogota Dc,' | OCR limpio: VUS 123, BOGOTA DC, | Tiempo: 52.329 s
+
+[MAIN] Procesando: data/placas/GNP314.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: GNP314.jpg | OCR bruto: ids = 'GNP-311', 'Cartagena' | OCR limpio: IDS 311, CARTAGENA | Tiempo: 52.561 s
+
+[MAIN] Procesando: data/placas/JNU540.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: JNU540.jpg | OCR bruto: 
+ 'JUNI 540, BOGOTA DC' | OCR limpio: JUN 540, BOGOTA DC | Tiempo: 53.117 s
+
+[MAIN] Procesando: data/placas/GYM503.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: GYM503.jpg | OCR bruto:  'gym-505 riocha' | OCR limpio: GYM 505, RIOCHA | Tiempo: 52.548 s
+
+[MAIN] Procesando: data/placas/EJY751.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: EJY751.jpg | OCR bruto:  'EJY 75', 'BOGOTA DC' | OCR limpio: EJY 75, BOGOTA DC | Tiempo: 52.563 s
+
+[MAIN] Procesando: data/placas/QEI465.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: QEI465.jpg | OCR bruto:  'QEI 465, MONTERIA' | OCR limpio: QEI 465, MONTERIA | Tiempo: 52.459 s
+
+[MAIN] Procesando: data/placas/BOP813.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: BOP813.jpg | OCR bruto: ids = 'BOP 813', 'BOGOTA D.C.' | OCR limpio: IDS 813, BOGOTA DC | Tiempo: 53.205 s
+
+[MAIN] Procesando: data/placas/CLC695.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: CLC695.jpg | OCR bruto:  '6795,CLC-ALRPA' | OCR limpio: 6795, CLCALRPA | Tiempo: 52.462 s
+
+[MAIN] Procesando: data/placas/KFW362.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: KFW362.jpg | OCR bruto:  'KFW 362, Barranquilla' | OCR limpio: KFW 362, BARRANQUILLA | Tiempo: 55.979 s
+
+[MAIN] Procesando: data/placas/IRY351.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: IRY351.jpg | OCR bruto: ury-351, barranquilla | OCR limpio: URY 351, BARRANQUILLA | Tiempo: 54.888 s
+
+[MAIN] Procesando: data/placas/QAA716.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: QAA716.jpg | OCR bruto:  'QAA 716 Restrepo' | OCR limpio: QAA 716, RESTREPO | Tiempo: 52.250 s
+
+[MAIN] Procesando: data/placas/HSZ782.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: HSZ782.jpg | OCR bruto: ids = 'HSZ2', 'BOGOTA D.C.' | OCR limpio: IDS  HSZ2, BOGOTA DC | Tiempo: 54.267 s
+
+[MAIN] Procesando: data/placas/CSX784.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: CSX784.jpg | OCR bruto:  '78-84,ARJONA' | OCR limpio: 7884, ARJONA | Tiempo: 54.547 s
+
+[MAIN] Procesando: data/placas/CWR898.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: CWR898.jpg | OCR bruto:  'CWR 898, CAI' | OCR limpio: CWR 898, CAI | Tiempo: 53.373 s
+
+[MAIN] Procesando: data/placas/BVR419.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: BVR419.jpg | OCR bruto: ids = 'BVR 479 19' | OCR limpio: IDS 479, 19 | Tiempo: 53.791 s
+
+[MAIN] Procesando: data/placas/JPY849.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: JPY849.jpg | OCR bruto:  'XYZ 123 449, PASTO DC' | OCR limpio: XYZ 123, PASTO DC | Tiempo: 55.363 s
+
+[MAIN] Procesando: data/placas/RKV767.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: RKV767.jpg | OCR bruto:  'RKV 767, BOGOTA D.C.' | OCR limpio: RKV 767, BOGOTA DC | Tiempo: 55.422 s
+
+[MAIN] Procesando: data/placas/GQD688.jpg
+[FNC find_largest_contour] No se encontraron contornos
+[MAIN] [ERROR] No se encontraron contornos en data/placas/GQD688.jpg
+
+[MAIN] Procesando: data/placas/IPD172.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: IPD172.jpg | OCR bruto: ids = 'I-PPD 17', city = 'Aguazul | OCR limpio: IDS  IPPD 17, CITY  AGUAZUL | Tiempo: 56.777 s
+
+[MAIN] Procesando: data/placas/DDO338.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: DDO338.jpg | OCR bruto:  '0 0 38 338 Armenia' | OCR limpio: ARM 003, ARMENIA | Tiempo: 55.282 s
+
+[MAIN] Procesando: data/placas/NVU692.jpg
+[FNC find_largest_contour] No se encontraron contornos
+[MAIN] [ERROR] No se encontraron contornos en data/placas/NVU692.jpg
+
+[MAIN] Procesando: data/placas/DEQ240.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: DEQ240.jpg | OCR bruto:  'X', 'Y', 'Z', '1', '2', | OCR limpio: X, Y, Z, 1, 2 | Tiempo: 55.812 s
+
+[MAIN] Procesando: data/placas/GGN311.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: GGN311.jpg | OCR bruto:  'PastoDC,' | OCR limpio: PASTODC,  | Tiempo: 55.867 s
+
+[MAIN] Procesando: data/placas/FKK196.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[FNC call_ollama] ERROR: respuesta sin contenido util. Respuesta cruda:
+[FNC call_ollama] ERROR procesando la respuesta: Object of type ChatResponse is not JSON serializable
+Respuesta cruda: model='moondream' created_at='2025-11-16T22:57:40.381628787Z' done=True done_reason='stop' total_duration=55506956851 load_duration=8979518 prompt_eval_count=773 prompt_eval_duration=55495712436 eval_count=1 eval_duration=524136 message=Message(role='assistant', content='', images=None, tool_calls=None)
+[MAIN] [ERROR] OCR fallo en data/placas/FKK196.jpg
+
+[MAIN] Procesando: data/placas/HIK108.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: HIK108.jpg | OCR bruto:  'X,Y,Z 123,PASTO DC' | OCR limpio: X, Y, Z 123, PASTO DC | Tiempo: 57.260 s
+
+[MAIN] Procesando: data/placas/QFF074.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: QFF074.jpg | OCR bruto: ids = 'OFF74', 'SANTANA MARTIA', 'P | OCR limpio: IDS  OFF74, SANTANA MARTIA, P | Tiempo: 56.827 s
+
+[MAIN] Procesando: data/placas/CJB588.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: CJB588.jpg | OCR bruto: ids = 'CJB 588', 'CHIA' | OCR limpio: IDS 588, CHIA | Tiempo: 52.905 s
+
+[MAIN] Procesando: data/placas/MGA007.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: MGA007.jpg | OCR bruto: 
+ 'X-ZY 123, PASTO DC' | OCR limpio: XZY 123, PASTO DC | Tiempo: 53.450 s
+
+[MAIN] Procesando: data/placas/GTV39H.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: GTV39H.jpg | OCR bruto:  'X', 'Y', 'Z', '1', '2', | OCR limpio: X, Y, Z, 1, 2 | Tiempo: 56.484 s
+
+[MAIN] Procesando: data/placas/GNK495.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: GNK495.jpg | OCR bruto: ids = 'GKN 495 Cartagena' | OCR limpio: IDS 495, CARTAGENA | Tiempo: 56.892 s
+
+[MAIN] Procesando: data/placas/ZIV081.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: ZIV081.jpg | OCR bruto:  'X,Y,Z 123,PASTO DC' | OCR limpio: X, Y, Z 123, PASTO DC | Tiempo: 54.128 s
+
+[MAIN] Procesando: data/placas/BDT954.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: BDT954.jpg | OCR bruto:  'X', 'Y', 'Z', '1', '2', | OCR limpio: X, Y, Z, 1, 2 | Tiempo: 54.954 s
+
+[MAIN] Procesando: data/placas/RAC289.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: RAC289.jpg | OCR bruto: 
+ 'X', 'Y', 'Z', '1', '2', | OCR limpio: X, Y, Z, 1, 2 | Tiempo: 58.605 s
+
+[MAIN] Procesando: data/placas/BHA247.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: BHA247.jpg | OCR bruto: ids = 'BHA 24,PASTO DC', ','.join | OCR limpio: IDS  BHA 24, PASTO DC, JOIN | Tiempo: 57.678 s
+
+[MAIN] Procesando: data/placas/CYZ965.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: CYZ965.jpg | OCR bruto:  'CYZ 123, PASTO DC,' | OCR limpio: CYZ 123, PASTO DC | Tiempo: 55.857 s
+
+[MAIN] Procesando: data/placas/CWL065.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: CWL065.jpg | OCR bruto: ids = [0.4, 0.3, 0.87, 0 | OCR limpio: IDS  04, 03, 087, 0 | Tiempo: 56.461 s
+
+[MAIN] Procesando: data/placas/HMG527.jpg
+[FNC find_largest_contour] No se encontraron contornos
+[MAIN] [ERROR] No se encontraron contornos en data/placas/HMG527.jpg
+
+[MAIN] Procesando: data/placas/MQI572.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: MQI572.jpg | OCR bruto:  'X,Y,Z 123,PASTO DC' | OCR limpio: X, Y, Z 123, PASTO DC | Tiempo: 56.547 s
+
+[MAIN] Procesando: data/placas/BNC377.jpg
+[FNC find_largest_contour] No se encontraron contornos
+[MAIN] [ERROR] No se encontraron contornos en data/placas/BNC377.jpg
+
+[MAIN] Procesando: data/placas/LXW773.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: LXW773.jpg | OCR bruto:  'X-7873 123,PASTO DC' | OCR limpio: X7873 123, PASTO DC | Tiempo: 56.255 s
+
+[MAIN] Procesando: data/placas/HRA020.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[FNC call_ollama] ERROR: respuesta sin contenido util. Respuesta cruda:
+[FNC call_ollama] ERROR procesando la respuesta: Object of type ChatResponse is not JSON serializable
+Respuesta cruda: model='moondream' created_at='2025-11-16T23:11:40.685662308Z' done=True done_reason='stop' total_duration=55138613518 load_duration=9659823 prompt_eval_count=773 prompt_eval_duration=55126564120 eval_count=1 eval_duration=521800 message=Message(role='assistant', content='', images=None, tool_calls=None)
+[MAIN] [ERROR] OCR fallo en data/placas/HRA020.jpg
+
+[MAIN] Procesando: data/placas/EJU211.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: EJU211.jpg | OCR bruto:  'EJU 21, BOGOTA D.C.' | OCR limpio: EJU 21, BOGOTA DC | Tiempo: 57.477 s
+
+[MAIN] Procesando: data/placas/FGJ743.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: FGJ743.jpg | OCR bruto: ids = 'F-GJ 743, E-VIGADO | OCR limpio: IDS 743, EVIGADO | Tiempo: 57.249 s
+
+[MAIN] Procesando: data/placas/BEM298.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[FNC call_ollama] ERROR: respuesta sin contenido util. Respuesta cruda:
+[FNC call_ollama] ERROR procesando la respuesta: Object of type ChatResponse is not JSON serializable
+Respuesta cruda: model='moondream' created_at='2025-11-16T23:14:29.846819051Z' done=True done_reason='stop' total_duration=54292470815 load_duration=10407346 prompt_eval_count=773 prompt_eval_duration=54278293494 eval_count=1 eval_duration=523763 message=Message(role='assistant', content='', images=None, tool_calls=None)
+[MAIN] [ERROR] OCR fallo en data/placas/BEM298.jpg
+
+[MAIN] Procesando: data/placas/ELW351.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: ELW351.jpg | OCR bruto:  'X.Y.Z 123,PASTO DC' | OCR limpio: XYZ 123, PASTO DC | Tiempo: 57.454 s
+
+[MAIN] Procesando: data/placas/HRN081.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: HRN081.jpg | OCR bruto:  'X', 'Y', 'Z', '1', '2', | OCR limpio: X, Y, Z, 1, 2 | Tiempo: 56.305 s
+
+[MAIN] Procesando: data/placas/BIL918.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: BIL918.jpg | OCR bruto:  'Bil 9818, Girardot' | OCR limpio: BIL 981, GIRARDOT | Tiempo: 56.133 s
+
+[MAIN] Procesando: data/placas/CRY830.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: CRY830.jpg | OCR bruto:  'X,Y,Z 123,PASTO DC' | OCR limpio: X, Y, Z 123, PASTO DC | Tiempo: 55.981 s
+
+[MAIN] Procesando: data/placas/DDC246.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: DDC246.jpg | OCR bruto: ids/chia/dc/254 | OCR limpio: IDS 254,  | Tiempo: 55.800 s
+
+[MAIN] Procesando: data/placas/HGU854.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: HGU854.jpg | OCR bruto:  'X,Y,Z 123 456' | OCR limpio: X, Y, Z 123 456 | Tiempo: 55.983 s
+
+[MAIN] Procesando: data/placas/BQA216.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: BQA216.jpg | OCR bruto:  'BQA 216 San Juan NEP.' | OCR limpio: BQA 216, SAN JUAN NEP | Tiempo: 56.505 s
+
+[MAIN] Procesando: data/placas/QHU693.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: QHU693.jpg | OCR bruto: ids = '6793', 'barranquilla' | OCR limpio: IDS 679, BARRANQUILLA | Tiempo: 56.904 s
+
+[MAIN] Procesando: data/placas/BED900.jpg
+[FNC find_largest_contour] No se encontraron contornos
+[MAIN] [ERROR] No se encontraron contornos en data/placas/BED900.jpg
+
+[MAIN] Procesando: data/placas/ONF550.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: ONF550.jpg | OCR bruto: ids = '1-5550, 1-5550, 1-55 | OCR limpio: IDS 155, 15550, 155 | Tiempo: 56.399 s
+
+[MAIN] Procesando: data/placas/MHY376.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: MHY376.jpg | OCR bruto:  'MWHY 3726, BARANQUILLA' | OCR limpio: MWH 372, BARANQUILLA | Tiempo: 53.742 s
+
+[MAIN] Procesando: data/placas/DCU016.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: DCU016.jpg | OCR bruto: ids = 'DCC-06', 'BOGOTA D.C.' | OCR limpio: IDS  DCC06, BOGOTA DC | Tiempo: 56.113 s
+
+[MAIN] Procesando: data/placas/MQH794.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: MQH794.jpg | OCR bruto:  'X', 'Y', 'Z', '1', '2', | OCR limpio: X, Y, Z, 1, 2 | Tiempo: 55.571 s
+
+[MAIN] Procesando: data/placas/IRY928.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: IRY928.jpg | OCR bruto: ury 928, barranquilla | OCR limpio: URY 928, BARRANQUILLA | Tiempo: 55.862 s
+
+[MAIN] Procesando: data/placas/RZG567.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: RZG567.jpg | OCR bruto:  'Rzg 567', 'Bogota Dc' | OCR limpio: RZG 567, BOGOTA DC | Tiempo: 56.863 s
+
+[MAIN] Procesando: data/placas/KIW944.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: KIW944.jpg | OCR bruto:  'X,Y,Z 123,PASTO DC' | OCR limpio: X, Y, Z 123, PASTO DC | Tiempo: 57.205 s
+
+[MAIN] Procesando: data/placas/LYG335.jpg
+[FNC find_largest_contour] No se encontraron contornos
+[MAIN] [ERROR] No se encontraron contornos en data/placas/LYG335.jpg
+
+[MAIN] Procesando: data/placas/CSX369.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: CSX369.jpg | OCR bruto:  '639,ARJONA 123,PASTO DC' | OCR limpio: 639, ARJONA 123, PASTO DC | Tiempo: 56.786 s
+
+[MAIN] Procesando: data/placas/HQN136.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: HQN136.jpg | OCR bruto:  'X,Y,Z 123,PASTO DC' | OCR limpio: X, Y, Z 123, PASTO DC | Tiempo: 56.646 s
+
+[MAIN] Procesando: data/placas/CSN706.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: CSN706.jpg | OCR bruto:  'X,Y,Z 123,PASTO DC' | OCR limpio: X, Y, Z 123, PASTO DC | Tiempo: 57.339 s
+
+[MAIN] Procesando: data/placas/QGY639.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: QGY639.jpg | OCR bruto:  'XYZ 123, PASTO DC' | OCR limpio: XYZ 123, PASTO DC | Tiempo: 56.673 s
+
+[MAIN] Procesando: data/placas/GEL468.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: GEL468.jpg | OCR bruto:  'X', 'Y', 'Z', '1', '2', | OCR limpio: X, Y, Z, 1, 2 | Tiempo: 57.576 s
+
+[MAIN] Procesando: data/placas/CGB815.jpg
+[FNC find_largest_contour] No se encontraron contornos
+[MAIN] [ERROR] No se encontraron contornos en data/placas/CGB815.jpg
+
+[MAIN] Procesando: data/placas/JPN561.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: JPN561.jpg | OCR bruto:  'X,Y,Z 123,PASTO DC' | OCR limpio: X, Y, Z 123, PASTO DC | Tiempo: 56.782 s
+
+[MAIN] Procesando: data/placas/NBD023.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: NBD023.jpg | OCR bruto: ids/23, 'PASTO DC', 'XZ 123' | OCR limpio: IDS23, PASTO DC, XZ 123 | Tiempo: 57.587 s
+
+[MAIN] Procesando: data/placas/FZV287.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: FZV287.jpg | OCR bruto: ids = 'FZV 28', 'BOGOTA D.C.' | OCR limpio: IDS  FZV 28, BOGOTA DC | Tiempo: 57.774 s
+
+[MAIN] Procesando: data/placas/NVD889.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: NVD889.jpg | OCR bruto:  'X', 'Y', 'Z', '1', '2', | OCR limpio: X, Y, Z, 1, 2 | Tiempo: 57.310 s
+
+[MAIN] Procesando: data/placas/QEF600.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: QEF600.jpg | OCR bruto:  'QEF 600 MONTERIA', 'MONTERIA' | OCR limpio: QEF 600, MONTERIA | Tiempo: 56.358 s
+
+[MAIN] Procesando: data/placas/ELW434.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: ELW434.jpg | OCR bruto: ids = 'ELW 434 BOGOTA DC', | OCR limpio: IDS 434, BOGOTA DC, | Tiempo: 56.616 s
+
+[MAIN] Procesando: data/placas/OKZ783.jpg
+[FNC call_ollama] Cliente creado. Enviando solicitud...
+[RESULT] Archivo: OKZ783.jpg | OCR bruto: ids = '7833', 'XZ' | OCR limpio: IDS 783, XZ | Tiempo: 54.391 s
+
+[MAIN] Flujo completado para carpeta: data/placas
+
+
+------------------
+(program exited with code: 0)

@@ -9,7 +9,7 @@ El sistema integra un pipeline de procesamiento de imágenes en **Python + OpenC
 
 - **Objetivo:** Detectar y reconocer placas vehiculares en tiempo real sin depender de la nube, mejorando latencia, costos y privacidad.
 - **Pipeline:** Captura → Segmentación por color (HSV) → Detección de contornos → Rectificación geométrica (warp) → Preprocesamiento (CLAHE, filtros, sharpen) → OCR con Ollama → Registro de resultados.
-- **Dataset:** Más de 100 imágenes de placas recolectadas y procesadas.  
+- **Dataset:** Más de 100 imágenes de placas recolectadas y procesadas.  [👉 Base de datos de Imagenes](https://github.com/JaimeYesidLeonParada/ProcesamientoImagenes/tree/main/Project/data)
 - **Evaluación:** Se seleccionaron 38 imágenes representativas para análisis detallado.
 - **Resultados:**  
   - 42% de detecciones completas (placa + ciudad).  
